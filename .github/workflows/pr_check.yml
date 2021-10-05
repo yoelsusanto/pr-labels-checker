@@ -13,7 +13,7 @@ jobs:
   pr-is-labeled:
     runs-on: ubuntu-latest
     steps:
-      - uses: yoelsusanto/pr-labels-checker@v3.1.2
+      - uses: yoelsusanto/pr-labels-checker@v3.1.3
         id: checkLabel
         with:
           hasSome: |
@@ -24,7 +24,7 @@ jobs:
   pr_not_ready-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: yoelsusanto/pr-labels-checker@v3.1.2
+      - uses: yoelsusanto/pr-labels-checker@v3.1.3
         id: checkLabel
         with:
           hasNone: do not merge
