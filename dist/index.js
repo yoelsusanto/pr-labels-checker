@@ -5768,6 +5768,24 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 828:
+/***/ ((__unused_webpack_module, exports) => {
+
+function parseInputTags (inputText) {
+  const removeNewLine = inputText.split('\n').join(',')
+  const splitByComma = removeNewLine.split(',');
+
+  const trimmed =  splitByComma.map(tag => tag.trim())
+
+  const notEmpty = trimmed.filter(tag => tag !== "")
+
+  return notEmpty
+}
+
+exports.parseInputTags = parseInputTags
+
+/***/ }),
+
 /***/ 508:
 /***/ ((module) => {
 
@@ -5923,6 +5941,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(728)
 const github = __nccwpck_require__(482)
+const { parseInputTags } = __nccwpck_require__(828)
 
 async function run() {
   try {
@@ -5940,10 +5959,10 @@ async function run() {
     const hasNoneInput = core.getInput('hasNone')
     const hasNotAllInput = core.getInput('hasNotAll')
 
-    const hasSomeLabels = hasSomeInput.split(',')
-    const hasAllLabels = hasAllInput.split(',')
-    const hasNoneLabels = hasNoneInput.split(',')
-    const hasNotAllLabels = hasNotAllInput.split(',')
+    const hasSomeLabels = parseInputTags(hasSomeInput)
+    const hasAllLabels = parseInputTags(hasAllInput)
+    const hasNoneLabels = parseInputTags(hasNoneInput)
+    const hasNotAllLabels = parseInputTags(hasNotAllInput)
 
     const failMessages = []
 
@@ -5993,7 +6012,7 @@ async function run() {
         ', '
       )}`)
     }
-  
+
     const checks = await octokit.checks.listForRef({
       ...context.repo,
       ref: context.payload.pull_request.head.ref,
