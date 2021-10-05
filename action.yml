@@ -1,4 +1,4 @@
-name: 'PR labels checker'
+name: 'PR labels checker - test'
 description: 'Checks PR labels for specified rules'
 inputs:
   hasSome:
