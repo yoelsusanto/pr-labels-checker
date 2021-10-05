@@ -24,7 +24,7 @@ jobs:
   pr_not_ready-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: yoelsusanto/pr-labels-checker@v3.1.1
+      - uses: yoelsusanto/pr-labels-checker@v3.1.2
         id: checkLabel
         with:
           hasNone: do not merge
