@@ -7,11 +7,11 @@ const { parseInputTags } = require('./utils')
 async function run() {
   try {
     // check if this is running on a pull request
-    core.setOutput('debug payload')
-    core.setOutput(util.inspect(github.context.payload, false, null, true))
+    core.info('debug payload')
+    core.info(util.inspect(github.context.payload, false, null, true))
 
-    core.setOutput('debug event')
-    core.setOutput(util.inspect(github.context.event, false, null, true))
+    core.info('debug event')
+    core.info(util.inspect(github.context.event, false, null, true))
 
     if (!github.context.payload.pull_request) {
       return core.setOutput('passed', true)
