@@ -13,7 +13,7 @@ jobs:
   pr-is-labeled-and-ready:
     runs-on: ubuntu-latest
     steps:
-      - uses: yoelsusanto/pr-labels-checker@v3.1.9
+      - uses: yoelsusanto/pr-labels-checker@v3.1.10
         id: checkLabel
         with:
           hasSome: |
