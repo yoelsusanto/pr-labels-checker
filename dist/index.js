@@ -5942,6 +5942,9 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(728)
 const github = __nccwpck_require__(482)
 const { parseInputTags } = __nccwpck_require__(828)
+// import core from '@actions/core'
+// import github from '@actions/github'
+// import { parseInputTags } from './utils'
 
 async function run() {
   try {
