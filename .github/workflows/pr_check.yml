@@ -1,0 +1,26 @@
+name: Pull request check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - labeled
+      - unlabeled
+      - synchronize
+
+jobs:
+  pr-is-labeled-and-ready:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: yoelsusanto/pr-labels-checker@v3.1.11
+        id: checkLabel
+        with:
+          hasSome: |
+            kind/new-feature
+            kind/enhancement
+            kind/hotfix
+            kind/bug
+            kind/cleanup
+          hasNone: do not merge
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
