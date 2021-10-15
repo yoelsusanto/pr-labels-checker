@@ -1,10 +1,14 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
+const util = require('util')
+
 const { parseInputTags } = require('./utils')
 
 async function run() {
   try {
     // check if this is running on a pull request
+    console.log(util.inspect(github.context.payload, false, null, true))
+
     if (!github.context.payload.pull_request) {
       return core.setOutput('passed', true)
     }
