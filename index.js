@@ -8,10 +8,10 @@ async function run() {
   try {
     // check if this is running on a pull request
     core.setOutput('debug payload')
-    core.setOuput(util.inspect(github.context.payload, false, null, true))
+    core.setOutput(util.inspect(github.context.payload, false, null, true))
 
     core.setOutput('debug event')
-    core.setOuput(util.inspect(github.context.event, false, null, true))
+    core.setOutput(util.inspect(github.context.event, false, null, true))
 
     if (!github.context.payload.pull_request) {
       return core.setOutput('passed', true)
